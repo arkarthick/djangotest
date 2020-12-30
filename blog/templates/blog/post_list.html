@@ -1,0 +1,34 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div>
+      {%for post in posts%}
+      <div class="card mt-3" style="width: 18rem; margin-left: 1rem">
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">{{post.text}}</p>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+    <div>
+      <p id="time"></p>
+    </div>
+    akskb
+  </body>
+  <script>
+    let date = new Date().toLocaleTimeString();
+    document.getElementById("time").textContent = date;
+  </script>
+</html>
