@@ -26,7 +26,7 @@ SECRET_KEY = '4=&6=)tja*9+6+svt$z^_+60^v75m9fu*^l@!5jz5cm5(yg^rl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig'
+    'blog.apps.BlogConfig',
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -49,8 +51,26 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
+# rest frame work
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ['rest_framework.permissions.AllowAny']
+}
+CORS_ORIGIN_ALLOW_ALL = True
+
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:8000',
+#     'http://localhost:3000',
+#     'http://127.0.0.1:8000',
+#     'http://127.0.0.1:3000',
+#     'http://arkarthick.pythonanywhere.com'
+# ]
+
+# CORS_ALLOW_METHODS = [
+#     'GET', 'POST', 'DELETE'
+# ]
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
